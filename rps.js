@@ -1,20 +1,20 @@
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
+let playerSelection = getPlayerChoice();
+let computerSelection =getComputerChoice();
 let playerScore = 0;
 let computerScore = 0;
 
 function getComputerChoice(){
-const array = ['rock', 'paper','scissors'];
-const computerSelection = array[Math.floor(Math.random() * array.length)];
-return computerSelection;
+let choice = ['rock', 'paper','scissors'];
+choice = choice[Math.floor(Math.random() * 3)];
+return choice;
 }
-console.log(computerSelection);
+
 
 function getPlayerChoice(){
-const playerSelection = prompt("Rock, Paper, Scissors?");
-  return playerSelection;
+const playerChoice = prompt("Rock, Paper, Scissors?");
+  return playerChoice;
 }
-console.log(playerSelection);
+
 
 function playRound() {
  if (playerSelection == computerSelection) {
@@ -23,7 +23,7 @@ function playRound() {
 else if(computerSelection == "rock" && playerSelection =="paper" ||
 computerSelection == "paper" && playerSelection =="scissors" ||
 computerSelection == "scissors" && playerSelection =="rock"){
-    playerScore = playerScore+1;
+   playerScore ++;
     return  "You Win!";
 }
     else {
@@ -32,20 +32,27 @@ computerSelection == "scissors" && playerSelection =="rock"){
        }
        }
 
-  
+    function game(){
+     for (let round = 1; round <= 5; round++) {
+       let playerSelection = prompt("Rock, paper or scissors?");
+        let computerSelection = getComputerChoice();
 
-
-
-function game(){
-    playRound(playerSelection,computerSelection);
-    console.log(playRound(playerSelection,computerSelection))
-console.log(playerScore);
-    console.log(computerScore);
-}
-/*let i=0;
-
-for(i=0; i<5; i++) {
-        game()
+        let roundResult = playRound(computerSelection, playerSelection);
+        console.log('You chooses: ' + playerSelection);
+        console.log('Computer chooses: ' + computerSelection);
+        console.log('Round ' + round + ': ' + roundResult);
     }
 
-   
+    if (playerScore > computerScore) {
+        console.log('You win! Your Score: ' + playerScore + ' Computer Score: ' + computerScore);
+    } else if (playerScore < computerScore) {
+        console.log('You lose! Your Score: ' + playerScore + ' Computer Score: ' + computerScore);
+    } else {
+        console.log('Draw! Your Score: ' + playerScore + ' Computer Score: ' + computerScore);
+    }
+
+}
+
+game()
+
+
