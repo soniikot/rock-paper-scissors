@@ -1,5 +1,7 @@
 const playerSelection = getPlayerChoice();
 const computerSelection = getComputerChoice();
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice(){
 const array = ['rock', 'paper','scissors'];
@@ -18,16 +20,32 @@ function playRound() {
  if (playerSelection == computerSelection) {
         return "Draw";
  }
-else if(computerSelection == "rock"){
-    return (playerSelection =="paper") ? "You Win!" : "You Lose"
+else if(computerSelection == "rock" && playerSelection =="paper" ||
+computerSelection == "paper" && playerSelection =="scissors" ||
+computerSelection == "scissors" && playerSelection =="rock"){
+    playerScore = playerScore+1;
+    return  "You Win!";
 }
-    else if (computerSelection == "paper"){
-        return (playerSelection =="scissors") ? "You Win!" : "You Lose"
+    else {
+        computerScore=computerScore+1;
+        return "You Lose";
        }
-       else if (computerSelection == "scissors"){
-        return (playerSelection =="rock") ? "You Win!" : "You Lose"
        }
-}
- 
-console.log(playRound(playerSelection, computerSelection)); 
 
+  
+
+
+
+function game(){
+    playRound(playerSelection,computerSelection);
+    console.log(playRound(playerSelection,computerSelection))
+console.log(playerScore);
+    console.log(computerScore);
+}
+/*let i=0;
+
+for(i=0; i<5; i++) {
+        game()
+    }
+
+   
