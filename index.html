@@ -3,9 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Page Title</title>
+  <script type="text/javascript" src="/rps.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <script type="text" src=..rock-paper-scissors/rps.js>
+  <div class="wrapper">
+    <h1>Choose your weapon</h1>
+    <div class="buttons">
+      <button type="button">scissors</button>
+      <button type="button">rock</button>
+      <button type="button">paper</button>
+    </div>
+    <div class="result">You choice: <span id="result">none</span></div>
+  </div>
+<script type="text/javascript" src="rps.js">
+ /* function handleClick(event) {
+    if (event.target.tagName !== "BUTTON") {
+      return;
+    }
+    let playerChoice = event.target.innerText;
+    document
+      .querySelector("#result")
+      .innerText = playerChoice;
+  }
+  
+  document
+    .querySelector(".buttons")
+    .addEventListener("click", handleClick);
 
 
 

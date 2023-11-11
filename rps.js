@@ -3,6 +3,24 @@ let computerSelection =getComputerChoice();
 let playerScore = 0;
 let computerScore = 0;
 
+
+
+function handleClick(event) {
+  if (event.target.tagName !== "BUTTON") {
+    return;
+  }
+  let playerChoice = event.target.innerText;
+  document
+    .querySelector("#result")
+    .innerText = playerChoice;
+}
+document
+  .querySelector(".buttons")
+  .addEventListener("click", handleClick);
+
+  
+
+
 function getComputerChoice(){
 let choice = ['rock', 'paper','scissors'];
 choice = choice[Math.floor(Math.random() * 3)];
@@ -11,11 +29,7 @@ return choice;
 
 
 
-function getPlayerChoice(){
-let playerChoice = prompt("Rock, Paper, Scissors?");
-  playerChoice=playerChoice.toLowerCase();
-  return playerChoice;
-}
+
 
 
 function playRound(computerSelection, playerSelection) {
