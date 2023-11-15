@@ -28,8 +28,8 @@ container.appendChild(finalText);
     getComputerChoice();
     playerText.textContent = `Player: ${playerSelection}`;
     computerText.textContent = `Computer: ${computerSelection}`;
-
     resultText.textContent = playRound();
+  
     
   round++;
   
@@ -43,10 +43,17 @@ container.appendChild(finalText);
     round=1;
     playerScore=0;
     computerScore=0;
- playerText.textContent = `Player: ${playerSelection}`;
+    playerSelection='';
+    computerSelection='';
+    resultText.textContent = playRound();
+    roundText.textContent = `Round ${round}`;
+playerText.textContent = `Player: ${playerSelection}`;
     computerText.textContent = `Computer: ${computerSelection}`;
     playerScoreText.textContent = `Your score: ${playerScore}`;
     computerScoreText.textContent = `Computer score: ${computerScore}`;
+    resultText.textContent = '';
+    finalText.textContent=''
+     document.querySelectorAll(".buttons").forEach(e => e.disabled = false)
   
   })
 
@@ -97,15 +104,7 @@ function checkWinner() {
      
     }
 
-    function stopGame(){
-      if (playerScore==5||computerScore==5){
-        document.querySelectorAll(".buttons").forEach(e => e.disabled = true)
-        const restartBtn = document.createElement('button');
-        restartBtn.textContent = 'Start over';
-        container.appendChild(restartBtn);
-
-      }
-    }
+   
 
 
 function stopGame(){
